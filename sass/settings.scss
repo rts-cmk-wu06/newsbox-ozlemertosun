@@ -1,3 +1,46 @@
-.Nav__icon-image_arrow{
-    transform: rotate(45deg);
+*{
+    margin: 0 auto;
+    font-family: Europa;
 }
+
+.Nav{
+   display: grid;
+   grid-template: 70px / 12.5% 75% 1fr;
+   align-items: center; 
+   .Nav__title{
+       font-size: 1.125em;
+       font-weight: bold;
+   }
+   .Nav__icon-image_arrow {
+    grid-area: 1/1/2/2;
+    align-self: center;
+    img{
+        transform: rotate(90deg);
+    }}   
+}
+
+.Main{ 
+    background-color: #ECEFF0;
+    text-align: center;
+    .Main__title{
+        color: #87BCBF;
+        font-size: 1.875em;
+        font-weight: bold;
+    }
+    .Main__subtitle{
+        font-family: Helvetica;
+        font-size: 1em;
+        font-weight: lighter;
+        color: #707070;
+    }
+}
+
+.SettingsList{
+    background-color: #FFFFFF;
+    margin: 63px 3% 70px 3%;
+}
+
+
+
+
+
