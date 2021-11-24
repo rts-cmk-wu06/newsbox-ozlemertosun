@@ -22,6 +22,7 @@
 .Main{ 
     background-color: #ECEFF0;
     text-align: center;
+    padding-top: 2.375em;
     .Main__title{
         color: #87BCBF;
         font-size: 1.875em;
@@ -33,14 +34,45 @@
         font-weight: lighter;
         color: #707070;
     }
+    .Main__subtitle-ruler{
+        border: 1px white solid; 
+        width: 8%;
+        margin-top: 17px;
+    }
 }
 
 .SettingsList{
     background-color: #FFFFFF;
-    margin: 63px 3% 70px 3%;
+    margin: 45px 4% 70px 4%;
+    padding: 0;
+    border-radius: 15px;
+    .settingsList__item{
+        list-style: none;
+        border-bottom: #F0F3F4 1px solid;
+        padding: 5%;
+        display: flex;
+    }
 }
 
+.Main__mode-button{
+    background-color: transparent;
+    display: inline-block;
+    border: solid 1px #C8D1D3;
+    border-radius: 25px;
+    font-family: rift-soft, sans-serif;
+    font-size: 0.875em;
+    font-weight: 400;
+    color: #334856;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px 30px 15px 30px;
+}
 
-
+.Main__version-tag{
+    font-weight: lighter;
+    font-size: 0.875em;
+    color: #6E8CA0;
+    padding: 35px 0 30px 0;
+}
 
 
