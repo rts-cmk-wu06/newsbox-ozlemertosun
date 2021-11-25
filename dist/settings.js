@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
       settingsListItem.appendChild(settingListItemCategoryName); // inde i li'en oprettes der en label, som skal blive til checkbox
 
       var checkboxWrap = createElement('label', {
-        className: 'settingList__item-checkbox'
+        className: 'settingList__item-checkbox-wrap'
       });
       settingsListItem.appendChild(checkboxWrap); //checkboxen skal indeholde et input, sæt attribute til checkbox
 
@@ -35,10 +35,10 @@ window.addEventListener('DOMContentLoaded', function () {
       checkboxInput.setAttribute('type', 'checkbox');
       checkboxWrap.appendChild(checkboxInput); //checkboxen skal indeholde et span
 
-      var checkboxSpan = createElement('span', {
-        className: 'settingsList__item-checkbox-span'
+      var checkboxSwitch = createElement('span', {
+        className: 'settingsList__item-checkbox-switch'
       });
-      checkboxWrap.appendChild(checkboxSpan);
+      checkboxWrap.appendChild(checkboxSwitch);
     });
   });
 });

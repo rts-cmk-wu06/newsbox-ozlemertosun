@@ -1,3 +1,4 @@
+
 window.addEventListener('DOMContentLoaded', () => {
     const sections = ['world', 'health', 'sports', 'business', 'travel']
     const apiKey = '5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc'
@@ -26,7 +27,7 @@ const createElement = (tag, options) => {
             
             // inde i li'en oprettes der en label, som skal blive til checkbox
             const checkboxWrap = createElement('label', {
-                className: 'settingList__item-checkbox'
+                className: 'settingList__item-checkbox-wrap'
             })
             settingsListItem.appendChild(checkboxWrap)
 
@@ -38,9 +39,9 @@ const createElement = (tag, options) => {
             checkboxWrap.appendChild(checkboxInput)
 
             //checkboxen skal indeholde et span
-            const checkboxSpan = createElement('span', {
-                className: 'settingsList__item-checkbox-span'})
-                checkboxWrap.appendChild(checkboxSpan)
+            const checkboxSwitch = createElement('span', {
+                className: 'settingsList__item-checkbox-switch'})
+                checkboxWrap.appendChild(checkboxSwitch)
             })
     })
 })
