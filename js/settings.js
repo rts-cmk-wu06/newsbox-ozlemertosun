@@ -17,8 +17,8 @@ const createElement = (tag, options) => {
 
             //derefter indsættes li i ul med
             const settingsListItem = createElement('li', {
-            className: 'settingsList__item'})
-            settingsList.appendChild(settingsListItem)
+                className: 'settingsList__item'})
+                settingsList.appendChild(settingsListItem)
 
             //li'en skal indeholde et p-tag
             const settingListItemCategoryName = createElement('p', {
@@ -45,3 +45,5 @@ const createElement = (tag, options) => {
             })
     })
 })
+
+
