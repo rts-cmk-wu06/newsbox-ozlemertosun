@@ -1,6 +1,7 @@
 
 window.addEventListener('DOMContentLoaded', () => {
-    const sections = ['world', 'health', 'sports', 'business', 'travel']
+    const sections = ['world'];
+    // const sections = ['world', 'health', 'sports', 'business', 'travel']
     const apiKey = '5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc'
 
 const createElement = (tag, options) => {
@@ -10,7 +11,6 @@ const createElement = (tag, options) => {
     sections.forEach((section) => {
         axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${apiKey}`)
         .then((response) =>  {
-            console.log(response)
 
             //vælger først ul'en i settings.html
             const settingsList = document.querySelector('.SettingsList')
@@ -22,7 +22,9 @@ const createElement = (tag, options) => {
 
             //li'en skal indeholde et p-tag
             const settingListItemCategoryName = createElement('p', {
-                className: 'settingsList__item-category-name'})
+                className: 'settingsList__item-category-name',
+                textContent: response.data.section
+            })
                 settingsListItem.appendChild(settingListItemCategoryName)
             
             // inde i li'en oprettes der en label, som skal blive til checkbox
@@ -44,6 +46,21 @@ const createElement = (tag, options) => {
                 checkboxWrap.appendChild(checkboxSwitch)
             })
     })
-})
+
+   document.addEventListener('click', (e) => {
+        if(e.target.classList.contains('settingsList__item-checkbox-input')){
+            if(!e.target.hasAttribute('checked')){
+                console.log('checked');
+                e.target.setAttribute('checked', 'checked')
+            }else{
+                e.target.removeAttribute('checked')
+                console.log('unchecked');
+            }
+        }
+   });
+
+});
+
+
 
 

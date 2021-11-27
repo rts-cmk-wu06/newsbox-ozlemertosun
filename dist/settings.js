@@ -1,7 +1,8 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var sections = ['world', 'health', 'sports', 'business', 'travel'];
+  var sections = ['world']; // const sections = ['world', 'health', 'sports', 'business', 'travel']
+
   var apiKey = '5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc';
 
   var createElement = function createElement(tag, options) {
@@ -10,8 +11,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   sections.forEach(function (section) {
     axios.get("https://api.nytimes.com/svc/topstories/v2/".concat(section, ".json?api-key=").concat(apiKey)).then(function (response) {
-      console.log(response); //vælger først ul'en i settings.html
-
+      //vælger først ul'en i settings.html
       var settingsList = document.querySelector('.SettingsList'); //derefter indsættes li i ul med
 
       var settingsListItem = createElement('li', {
@@ -20,7 +20,8 @@ window.addEventListener('DOMContentLoaded', function () {
       settingsList.appendChild(settingsListItem); //li'en skal indeholde et p-tag
 
       var settingListItemCategoryName = createElement('p', {
-        className: 'settingsList__item-category-name'
+        className: 'settingsList__item-category-name',
+        textContent: response.data.section
       });
       settingsListItem.appendChild(settingListItemCategoryName); // inde i li'en oprettes der en label, som skal blive til checkbox
 
@@ -40,5 +41,16 @@ window.addEventListener('DOMContentLoaded', function () {
       });
       checkboxWrap.appendChild(checkboxSwitch);
     });
+  });
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('settingsList__item-checkbox-input')) {
+      if (!e.target.hasAttribute('checked')) {
+        console.log('checked');
+        e.target.setAttribute('checked', 'checked');
+      } else {
+        e.target.removeAttribute('checked');
+        console.log('unchecked');
+      }
+    }
   });
 });

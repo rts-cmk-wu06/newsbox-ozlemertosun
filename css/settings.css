@@ -1,5 +1,5 @@
 * {
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
   font-family: Europa;
   -webkit-tap-highlight-color: transparent;
@@ -8,6 +8,7 @@
 .Nav {
   display: grid;
   grid-template: 70px/12.5% 75% 1fr;
+  justify-items: center;
   align-items: center;
 }
 .Nav .Nav__title {
@@ -16,7 +17,6 @@
 }
 .Nav .Nav__icon-image_arrow {
   grid-area: 1/1/2/2;
-  align-self: center;
 }
 .Nav .Nav__icon-image_arrow img {
   transform: rotate(90deg);
@@ -55,6 +55,12 @@
   border-bottom: #F0F3F4 1px solid;
   padding: 5%;
   display: flex;
+  justify-content: space-between;
+}
+.SettingsList .settingsList__item-category-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .Main__mode-button {
