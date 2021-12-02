@@ -23,34 +23,23 @@ window.addEventListener('DOMContentLoaded', function () {
         className: 'settingsList__item-category-name',
         textContent: response.data.section
       });
-      settingsListItem.appendChild(settingListItemCategoryName); // inde i li'en oprettes der en label, som skal blive til checkbox
+      settingsListItem.appendChild(settingListItemCategoryName);
+      var toggleButton = createElement('button', {
+        className: 'settingList__button settingList-button-active'
+        /*  id: 'button-${element}',  */
 
-      var checkboxWrap = createElement('label', {
-        className: 'settingList__item-checkbox-wrap'
       });
-      settingsListItem.appendChild(checkboxWrap); //checkboxen skal indeholde et input, sæt attribute til checkbox
-
-      var checkboxInput = createElement('input', {
-        className: 'settingsList__item-checkbox-input'
+      settingsListItem.appendChild(toggleButton);
+      var toggleButtonIcon = createElement('i', {
+        className: 'fas fa-circle settingsList__button-icon'
       });
-      checkboxInput.setAttribute('type', 'checkbox');
-      checkboxWrap.appendChild(checkboxInput); //checkboxen skal indeholde et span
-
-      var checkboxSwitch = createElement('span', {
-        className: 'settingsList__item-checkbox-switch'
-      });
-      checkboxWrap.appendChild(checkboxSwitch);
+      toggleButton.appendChild(toggleButtonIcon);
     });
   });
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('settingsList__item-checkbox-input')) {
-      if (!e.target.hasAttribute('checked')) {
-        console.log('checked');
-        e.target.setAttribute('checked', 'checked');
-      } else {
-        e.target.removeAttribute('checked');
-        console.log('unchecked');
-      }
-    }
-  });
 });
+
+if (localStorage.getItem(eSwitch.id.replace('settingList__button', '')) == 'true') {
+  eSwitch.classList.add('settingList__button-active');
+} else {
+  eSwitch.classList.remove('settingList__button');
+}

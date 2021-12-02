@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', () => {
     const sections = ['world'];
     // const sections = ['world', 'health', 'sports', 'business', 'travel']
@@ -25,42 +24,32 @@ const createElement = (tag, options) => {
                 className: 'settingsList__item-category-name',
                 textContent: response.data.section
             })
-                settingsListItem.appendChild(settingListItemCategoryName)
-            
-            // inde i li'en oprettes der en label, som skal blive til checkbox
-            const checkboxWrap = createElement('label', {
-                className: 'settingList__item-checkbox-wrap'
-            })
-            settingsListItem.appendChild(checkboxWrap)
+            settingsListItem.appendChild(settingListItemCategoryName)
+                
 
-            //checkboxen skal indeholde et input, sæt attribute til checkbox
-            const checkboxInput = createElement('input', {
-                className: 'settingsList__item-checkbox-input'
+            const toggleButton = createElement('button', {
+                className: 'settingList__button settingList-button-active',
+               /*  id: 'button-${element}',  */
             })
-            checkboxInput.setAttribute('type', 'checkbox')
-            checkboxWrap.appendChild(checkboxInput)
-
-            //checkboxen skal indeholde et span
-            const checkboxSwitch = createElement('span', {
-                className: 'settingsList__item-checkbox-switch'})
-                checkboxWrap.appendChild(checkboxSwitch)
+            settingsListItem.appendChild(toggleButton)
+               
+            const toggleButtonIcon = createElement('i', {
+                className: 'fas fa-circle settingsList__button-icon',
             })
+            toggleButton.appendChild(toggleButtonIcon)
     })
-
-   document.addEventListener('click', (e) => {
-        if(e.target.classList.contains('settingsList__item-checkbox-input')){
-            if(!e.target.hasAttribute('checked')){
-                console.log('checked');
-                e.target.setAttribute('checked', 'checked')
-            }else{
-                e.target.removeAttribute('checked')
-                console.log('unchecked');
-            }
-        }
+   
    });
 
 });
 
 
+if (localStorage.getItem(eSwitch.id.replace('settingList__button', '')) == 'true') {
 
-
+    eSwitch.classList.add('settingList__button-active')
+    
+    } else {
+    
+    eSwitch.classList.remove('settingList__button')
+    
+    }
