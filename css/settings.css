@@ -87,14 +87,18 @@
 .settingList__button {
   width: 50px;
   background-color: #E0E5E5;
-  border-radius: 25px;
+  border-radius: 15px;
   border-style: none;
+  display: flex;
+  justify-content: left;
 }
 .settingList__button .settingsList__button-icon {
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .settingList__button-active {
   background-color: #87BCBF;
+  display: flex;
+  justify-content: right;
 }

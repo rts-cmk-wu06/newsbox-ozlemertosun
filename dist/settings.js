@@ -1,8 +1,9 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function () {
-  var sections = ['world']; // const sections = ['world', 'health', 'sports', 'business', 'travel']
-
+  var sections = ['world'
+  /* 'health', 'sports', 'business', 'travel' */
+  ];
   var apiKey = '5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc';
 
   var createElement = function createElement(tag, options) {
@@ -25,21 +26,34 @@ window.addEventListener('DOMContentLoaded', function () {
       });
       settingsListItem.appendChild(settingListItemCategoryName);
       var toggleButton = createElement('button', {
-        className: 'settingList__button settingList-button-active'
-        /*  id: 'button-${element}',  */
-
+        className: 'settingList__button settingList-button-active',
+        id: "button-".concat(section)
       });
       settingsListItem.appendChild(toggleButton);
       var toggleButtonIcon = createElement('i', {
         className: 'fas fa-circle settingsList__button-icon'
       });
       toggleButton.appendChild(toggleButtonIcon);
+
+      function categorySwitch(eSwitch) {
+        if (localStorage.getItem(eSwitch.id.replace('button-', '')) == 'true') {
+          eSwitch.classList.add('settingList__button-active');
+        } else {
+          eSwitch.classList.remove('settingList__button');
+        }
+
+        eSwitch.addEventListener("click", function () {
+          if (eSwitch.classList.contains("settingList__button-active")) {
+            localStorage.setItem(eSwitch.id.replace("button-", ""), "false");
+            eSwitch.classList.remove("settingList__button-active");
+          } else {
+            localStorage.setItem(eSwitch.id.replace("button-", ""), "true");
+            eSwitch.classList.add("settingList__button-active");
+          }
+        });
+      }
+
+      categorySwitch(toggleButton);
     });
   });
 });
-
-if (localStorage.getItem(eSwitch.id.replace('settingList__button', '')) == 'true') {
-  eSwitch.classList.add('settingList__button-active');
-} else {
-  eSwitch.classList.remove('settingList__button');
-}

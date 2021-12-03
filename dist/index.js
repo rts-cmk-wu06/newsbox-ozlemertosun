@@ -14,10 +14,8 @@ newsSections.forEach(function (element) {
 });
 
 function createNewsSections(element) {
-  axios.get('https://api.nytimes.com/svc/topstories/v2/${element}.json?api-key=5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc').then(function (response) {
-    return console.log(response);
+  axios.get("https://api.nytimes.com/svc/topstories/v2/".concat(element, ".json?api-key=5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc")).then(function (response) {
+    console.log(response);
   });
 }
-
-;
 /* axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=5zl50zE6rFMVoQGAhRBziVlfZlAeTPPc').then( response => console.log(response)); */
